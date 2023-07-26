@@ -5,7 +5,7 @@ using Nicknotnutils.Extension;
 namespace ImageApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("amin/[controller]")]
 public class AminImageController : ControllerBase
 {
 
@@ -16,14 +16,14 @@ public class AminImageController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet()]
+    [HttpGet(Name = "image")]
     public ActionResult Get()
     {
         var data = new { path = $"https://{Request.Host}{FileManager.AminPaths.ChooseRandom()}" };
         return new JsonResult(Ok(data));
     }
 
-    [HttpPut()]
+    [HttpPut(Name = "image")]
     public ActionResult Put([FromBody] CreateAminImageModel model)
     {
         byte[] bytes;
@@ -56,7 +56,7 @@ public class AminImageController : ControllerBase
         return new JsonResult(Ok($"File `{model.ImgName}` successfully created`"));
     }
 
-    [HttpDelete]
+    [HttpDelete(Name = "image")]
     public ActionResult Delete(string name)
     {
         var imgPath = $"{FileManager.wwwrootPath}/images/amin/{name}";
