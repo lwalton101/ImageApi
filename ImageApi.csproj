@@ -10,4 +10,10 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Nicknotnutils">
+        <HintPath>lib\Nicknotnutils.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
