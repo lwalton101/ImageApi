@@ -82,10 +82,8 @@ public class ImageController : ControllerBase
             FileManager.InitFileManager();
             return new JsonResult(Ok($"Deleted Image {model.ImageName}"));
         }
-        else
-        {
-            return new JsonResult(NotFound("Cannot find the image"));
-        }
+
+        return new JsonResult(NotFound("Cannot find the image"));
     }
 
     [HttpGet("categories")]
