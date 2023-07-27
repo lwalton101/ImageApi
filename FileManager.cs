@@ -22,6 +22,7 @@ public static class FileManager
             foreach (var file in files)
             {
                 var catName = file.Split("/").Last();
+                Console.WriteLine(catName);
                 ImagesByCategory[category].Add(catName);
             }
         }
