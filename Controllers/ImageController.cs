@@ -18,7 +18,7 @@ public class ImageController : ControllerBase
         }
 
         var imageUrl = FileManager.ImagesByCategory[category].ChooseRandom();
-        var path = $"https://{Request.Host}/images{imageUrl}";
+        var path = $"https://{Request.Host}/images/{imageUrl}";
         var response = new GetImageResponseModel
         {
             category = category,
