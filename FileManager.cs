@@ -10,7 +10,6 @@ public static class FileManager
     public static Dictionary<string, List<string>> ImagesByCategory = new();
     public static void InitFileManager()
     {
-
         ImageCategories = new();
         ImagesByCategory = new();
         var dirs = Directory.GetDirectories(WwwrootPath + "/images", "*", SearchOption.TopDirectoryOnly);
@@ -22,7 +21,8 @@ public static class FileManager
             ImagesByCategory[category] = new List<string>();
             foreach (var file in files)
             {
-                ImagesByCategory[category].Add(file.Replace($"{WwwrootPath}/images", $""));
+                var catName = file.Split("/").Last();
+                ImagesByCategory[category].Add(catName);
             }
         }
     }
