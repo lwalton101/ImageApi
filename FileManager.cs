@@ -15,7 +15,8 @@ public static class FileManager
         var dirs = Directory.GetDirectories(WwwrootPath + "/images", "*", SearchOption.TopDirectoryOnly);
         foreach (var dir in dirs)
         {
-            var category = dir.Split("\\").Last();
+            var repalceDir = dir.Replace("\\", "/");
+            var category = repalceDir.Split("/").Last();
             ImageCategories.Add(category);
             var files = Directory.GetFiles(dir, "*.png", SearchOption.AllDirectories);
             ImagesByCategory[category] = new List<string>();
