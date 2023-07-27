@@ -10,6 +10,9 @@ public static class FileManager
     public static Dictionary<string, List<string>> ImagesByCategory = new();
     public static void InitFileManager()
     {
+
+        ImageCategories = new();
+        ImagesByCategory = new();
         var dirs = Directory.GetDirectories(WwwrootPath + "/images", "*", SearchOption.TopDirectoryOnly);
         foreach (var dir in dirs)
         {

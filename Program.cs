@@ -1,4 +1,5 @@
 using ImageApi;
+using ImageApi.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 

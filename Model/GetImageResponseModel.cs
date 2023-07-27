@@ -1,6 +1,6 @@
 ﻿namespace ImageApi.Model;
 
-public class GetImageModel
+public class GetImageResponseModel
 {
     public string category { get; set; }
     public string imageURL { get; set; }
