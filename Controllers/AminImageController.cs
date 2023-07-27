@@ -19,7 +19,7 @@ public class AminImageController : ControllerBase
     [HttpGet(Name = "image")]
     public ActionResult Get()
     {
-        var data = new { path = $"https://{Request.Host}{FileManager.AminPaths.ChooseRandom()}" };
+        var data = new { path = $"https://{Request.Host}{FileManager.ImagesByCategory["amin"].ChooseRandom()}" };
         return new JsonResult(Ok(data));
     }
 
@@ -46,7 +46,7 @@ public class AminImageController : ControllerBase
             return new JsonResult(BadRequest("b64Img must not be null"));
         }
 
-        var imgPath = $"{FileManager.wwwrootPath}/images/amin/{model.ImgName}";
+        var imgPath = $"{FileManager.WwwrootPath}/images/amin/{model.ImgName}";
         if (System.IO.File.Exists(imgPath))
         {
             return new JsonResult(Conflict($"File `{model.ImgName}` already exists"));
@@ -59,7 +59,7 @@ public class AminImageController : ControllerBase
     [HttpDelete(Name = "image")]
     public ActionResult Delete(string name)
     {
-        var imgPath = $"{FileManager.wwwrootPath}/images/amin/{name}";
+        var imgPath = $"{FileManager.WwwrootPath}/images/amin/{name}";
         if (System.IO.File.Exists(imgPath))
         {
             System.IO.File.Delete(imgPath);
