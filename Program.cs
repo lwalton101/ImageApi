@@ -19,8 +19,6 @@ FileManager.InitFileManager();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthorization();
 
