@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-FileManager.wwwrootPath = builder.Environment.WebRootPath;
+FileManager.WwwrootPath = builder.Environment.WebRootPath;
 FileManager.InitFileManager();
 
 // Configure the HTTP request pipeline.
