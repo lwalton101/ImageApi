@@ -17,14 +17,12 @@ public static class FileManager
         {
             var repalceDir = dir.Replace("\\", "/");
             var category = repalceDir.Split("/").Last();
-            Console.WriteLine(category);
             ImageCategories.Add(category);
             var files = Directory.GetFiles(dir, "*.png", SearchOption.AllDirectories);
             ImagesByCategory[category] = new List<string>();
             foreach (var file in files)
             {
                 var catName = file.Split("/").Last();
-                Console.WriteLine(catName);
                 ImagesByCategory[category].Add(catName);
             }
         }
