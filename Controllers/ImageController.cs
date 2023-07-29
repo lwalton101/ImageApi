@@ -62,14 +62,15 @@ public class ImageController : ControllerBase
             return new JsonResult(BadRequest("b64Img must not be null"));
         }
 
-        var imgPath = $"{FileManager.WwwrootPath}/images/{category}/{model.ImgName}";
+        var correctImgName = model.ImgName.Replace(" ", "_");
+        var imgPath = $"{FileManager.WwwrootPath}/images/{category}/{correctImgName}";
         if (System.IO.File.Exists(imgPath))
         {
-            return new JsonResult(Conflict($"File `{model.ImgName}` already exists"));
+            return new JsonResult(Conflict($"File `{correctImgName}` already exists"));
         }
         System.IO.File.WriteAllBytes(imgPath, bytes);
 
-        return new JsonResult(Ok($"File `{model.ImgName}` successfully created`"));
+        return new JsonResult(Ok($"File `{correctImgName}` successfully created`"));
     }
 
     [HttpDelete("{category}")]
