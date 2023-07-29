@@ -22,8 +22,10 @@ public static class FileManager
             ImagesByCategory[category] = new List<string>();
             foreach (var file in files)
             {
-                var catName = file.Split("/").Last();
-                ImagesByCategory[category].Add(catName);
+                
+                var fileName = file.Split("/").Last();
+                File.Move(file, file.Replace(fileName, fileName.Replace(" ", "_")));
+                ImagesByCategory[category].Add(fileName.Replace(" ", "_"));
             }
         }
     }
